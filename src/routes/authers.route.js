@@ -34,7 +34,7 @@ async function getAutherByAutherId(req, res) {
 }
 /*================================================*/
 //get auther with all his books
-authersRouter.get("/author/:id/books", getAuthorAndBooks);
+authersRouter.get("/authers/:id/books", getAuthorAndBooks);
 async function getAuthorAndBooks(req, res) {
   let { id } = req.params;
   let authorsResult = await AuthorsCollection.readAutherWithHisBooks(
