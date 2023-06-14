@@ -1,5 +1,5 @@
 const express = require("express");
-const { Food } = require("../models/index");
+const { FoodTable } = require("../models/index");
 const foodRouter = express.Router();
 
 /*================================================*/
@@ -8,7 +8,7 @@ foodRouter.post("/food", createFood);
 
 async function createFood(req, res) {
   let newFood = req.body;
-  let createdFood = await Food.create(newFood);
+  let createdFood = await FoodTable.create(newFood);
   res.status(201).json(createdFood);
 }
 /*================================================*/
@@ -16,7 +16,7 @@ async function createFood(req, res) {
 foodRouter.get("/food", getAllFood);
 
 async function getAllFood(req, res) {
-  let allFood = await Food.findAll();
+  let allFood = await FoodTable.findAll();
   res.status(200).json(allFood);
 }
 /*================================================*/
@@ -25,7 +25,7 @@ foodRouter.get("/food/:id", getFoodById);
 
 async function getFoodById(req, res) {
   let id = req.params.id;
-  let foodResult = await Food.findOne({
+  let foodResult = await FoodTable.findOne({
     where: {
       id: id,
     },
@@ -39,7 +39,7 @@ foodRouter.put("/food/:id", updateFoodById);
 async function updateFoodById(req, res) {
   let id = req.params.id;
   let updatedFoodData = req.body;
-  let foodToUpdate = await Food.findOne({
+  let foodToUpdate = await FoodTable.findOne({
     where: {
       id: id,
     },
@@ -53,7 +53,7 @@ foodRouter.delete("/food/:id", deleteFoodById);
 
 async function deleteFoodById(req, res) {
   let id = req.params.id;
-  await Food.destroy({
+  await FoodTable.destroy({
     where: {
       id: id,
     },

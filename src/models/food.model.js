@@ -1,5 +1,5 @@
 "use strict";
-const Food = (sequelize, DataTypes) =>
+const FoodModel = (sequelize, DataTypes) =>
   sequelize.define("food", {
     id: {
       type: DataTypes.INTEGER,
@@ -19,4 +19,4 @@ const Food = (sequelize, DataTypes) =>
       allowNull: false,
     },
   });
-module.exports = Food;
+module.exports = FoodModel;

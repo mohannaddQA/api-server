@@ -6,7 +6,9 @@ const app = express();
 const port = process.env.PORT;
 //-----------------------------------requirements------------------------------------
 const clothesRouter = require("./routes/clothes");
+const authersRouter = require("./routes/authers.route");
 const foodRouter = require("./routes/food");
+const booksRouter = require("./routes/books.route");
 const internalError = require("./error-handlers/500");
 const pageNotFound = require("./error-handlers/404");
 
@@ -15,7 +17,10 @@ const pageNotFound = require("./error-handlers/404");
 app.use(cors());
 app.use(express.json());
 app.use(clothesRouter);
+app.use(authersRouter);
 app.use(foodRouter);
+app.use(booksRouter);
+
 //---------------------------------******************----------------------------------
 //----------------------------------------routes---------------------------------------
 app.get("/", (req, res) => {
