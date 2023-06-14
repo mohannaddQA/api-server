@@ -25,11 +25,7 @@ authersRouter.get("/authers/:id", getAutherByAutherId);
 
 async function getAutherByAutherId(req, res) {
   let AutherId = req.params.id;
-  let AutherResult = await AuthorsCollection.read({
-    where: {
-      id: AutherId,
-    },
-  });
+  let AutherResult = await AuthorsCollection.read(AutherId);
   res.status(200).json(AutherResult);
 }
 /*================================================*/
@@ -39,7 +35,7 @@ async function getAuthorAndBooks(req, res) {
   let { id } = req.params;
   let authorsResult = await AuthorsCollection.readAutherWithHisBooks(
     id,
-    BooksCollection
+    BooksCollection.table
   );
   res.status(200).send(authorsResult);
 }
