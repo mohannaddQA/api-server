@@ -1,5 +1,5 @@
 const express = require("express");
-const { Clothes } = require("../models/index");
+const { ClothesTable } = require("../models/index");
 const clothesRouter = express.Router();
 
 /*================================================*/
@@ -9,7 +9,7 @@ clothesRouter.post("/clothes", createClothes);
 
 async function createClothes(req, res) {
   let newClothes = req.body;
-  let createdClothes = await Clothes.create(newClothes);
+  let createdClothes = await ClothesTable.create(newClothes);
   res.status(201).json(createdClothes);
 }
 /*================================================*/
@@ -18,7 +18,7 @@ async function createClothes(req, res) {
 clothesRouter.get("/clothes", getAllClothes);
 
 async function getAllClothes(req, res) {
-  let Allclothes = await Clothes.findAll();
+  let Allclothes = await ClothesTable.findAll();
   res.status(200).json(Allclothes);
 }
 /*================================================*/
@@ -28,7 +28,7 @@ clothesRouter.get("/clothes/:id", getClothesById);
 
 async function getClothesById(req, res) {
   let id = req.params.id;
-  let clothesResult = await Clothes.findOne({
+  let clothesResult = await ClothesTable.findOne({
     where: {
       id: id,
     },
@@ -43,7 +43,7 @@ clothesRouter.put("/clothes/:id", updateClothesById);
 async function updateClothesById(req, res) {
   let id = req.params.id;
   let updatedClothesData = req.body;
-  let clothesToUpdate = await Clothes.findOne({
+  let clothesToUpdate = await ClothesTable.findOne({
     where: {
       id: id,
     },
@@ -58,7 +58,7 @@ clothesRouter.delete("/clothes/:id", deleteClothesById);
 
 async function deleteClothesById(req, res) {
   let id = req.params.id;
-  let clothesToDelete = await Clothes.destroy({
+  let clothesToDelete = await ClothesTable.destroy({
     where: {
       id: id,
     },

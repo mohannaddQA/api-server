@@ -1,5 +1,5 @@
 "use strict";
-const Clothes = (sequelize, DataTypes) =>
+const ClothesModel = (sequelize, DataTypes) =>
   sequelize.define("clothe", {
     id: {
       type: DataTypes.INTEGER,
@@ -16,4 +16,4 @@ const Clothes = (sequelize, DataTypes) =>
     },
   });
 
-module.exports = Clothes;
+module.exports = ClothesModel;
