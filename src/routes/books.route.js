@@ -25,11 +25,7 @@ booksRouter.get("/books/:id", getBookByBookId);
 
 async function getBookByBookId(req, res) {
   let BookId = req.params.id;
-  let BookResult = await BooksCollection.read({
-    where: {
-      id: BookId,
-    },
-  });
+  let BookResult = await BooksCollection.read(BookId);
   res.status(200).json(BookResult);
 }
 /*================================================*/
