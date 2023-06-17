@@ -18,17 +18,7 @@ const POSTGRES_URI =
     ? "sqlite::memory:"
     : process.env.DATABSAE_URL;
 
-let sequelizeOptions =
-  process.env.NODE_ENV === "production"
-    ? {
-        dialectOptions: {
-          ssl: {
-            require: true,
-            rejectUnauthorized: false,
-          },
-        },
-      }
-    : {};
+let sequelizeOptions = process.env.NODE_ENV === "production" ? {} : {};
 const sequelize = new Sequelize(POSTGRES_URI, sequelizeOptions);
 
 //-----------------------------------creating the tables by sequalize--------------------------------------------------------
