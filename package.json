@@ -6,7 +6,9 @@
   "scripts": {
     "test": "NODE_ENV=test jest --coverage --verbose",
     "dev": "NODE_ENV=development nodemon index.js",
-    "start": "NODE_ENV=production node index.js"
+    "//comment": "in these scripts we are sitting some enviroment variables (even if they are not declared in the .env) before starting to run the script so if you run the dev it won't have the same port set when you run the start",
+    "//comment2": "NODE_ENV is a special enviroment variable , read more about it, ",
+    "start": "PORT=3000 NODE_ENV=production node index.js"
   },
   "keywords": [],
   "author": "",
