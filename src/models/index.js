@@ -32,7 +32,7 @@ let sequelizeOptions =
 const sequelize = new Sequelize(POSTGRES_URI, sequelizeOptions);
 
 //-----------------------------------creating the tables by sequalize--------------------------------------------------------
-//=======================================================================================================
+//==============================these function calls will create the tables ====================================
 /* these are done in the old way where we create the tables, and the methods or the operations are done in the routes
 and i will call them tables. i kept it for the sake of comparison. */
 const FoodTable = FoodModel(sequelize, DataTypes);

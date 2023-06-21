@@ -21,3 +21,5 @@ const BooksModel = (sequelize, DataTypes) =>
   });
 
 module.exports = BooksModel;
+
+// here we defined the function that ==> when executed creates Books table in the db

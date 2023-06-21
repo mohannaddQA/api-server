@@ -22,3 +22,5 @@ const AuthorsModel = (sequelize, DataTypes) =>
   });
 
 module.exports = AuthorsModel;
+
+// here we defined the function that ==> when executed creates authors table in the db

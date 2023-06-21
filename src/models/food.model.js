@@ -20,3 +20,5 @@ const FoodModel = (sequelize, DataTypes) =>
     },
   });
 module.exports = FoodModel;
+
+// here we defined the function that ==> when executed creates Food table in the db

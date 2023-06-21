@@ -17,3 +17,5 @@ const ClothesModel = (sequelize, DataTypes) =>
   });
 
 module.exports = ClothesModel;
+
+// here we defined the function that ==> when executed creates Clothes table in the db
