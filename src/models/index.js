@@ -18,12 +18,17 @@ const POSTGRES_URI =
     ? "sqlite::memory:"
     : process.env.DATABSAE_URL;
 
-let sequelizeOptions = process.env.NODE_ENV === "production" ? { dialectOptions: {
+let sequelizeOptions =
+  process.env.NODE_ENV === "production" // this is production , it won't work locally , so if you try npm start it won't work
+    ? {
+        dialectOptions: {
           ssl: {
             require: true,
             rejectUnauthorized: false,
           },
-        },} : {};
+        },
+      }
+    : {};
 const sequelize = new Sequelize(POSTGRES_URI, sequelizeOptions);
 
 //-----------------------------------creating the tables by sequalize--------------------------------------------------------
